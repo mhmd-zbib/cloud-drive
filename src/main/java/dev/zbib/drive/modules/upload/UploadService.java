@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.file.service;
+package dev.zbib.drive.modules.upload;
 
 import org.springframework.stereotype.Service;
 
