@@ -1,10 +1,10 @@
-package dev.zbib.filesync;
+package dev.zbib.drive;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FilesyncApplicationTests {
+class DriveApplicationTests {
 
     @Test
     void contextLoads() {

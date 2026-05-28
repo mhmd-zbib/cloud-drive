@@ -1,13 +1,13 @@
-package dev.zbib.filesync;
+package dev.zbib.drive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FilesyncApplication {
+public class DriveApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FilesyncApplication.class, args);
+        SpringApplication.run(DriveApplication.class, args);
     }
 
 }
