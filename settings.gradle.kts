@@ -1,1 +1,1 @@
-rootProject.name = "filesync"
+rootProject.name = "drive"
