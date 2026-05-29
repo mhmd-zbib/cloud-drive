@@ -6,7 +6,7 @@ import lombok.Data;
 
 
 @Data
-public class UploadInput {
+public class InitUploadInput {
 
     @NotBlank
     private String fileName;
@@ -16,4 +16,7 @@ public class UploadInput {
 
     @Positive
     private long totalSize;
+
+    @NotBlank
+    private String checksum;
 }

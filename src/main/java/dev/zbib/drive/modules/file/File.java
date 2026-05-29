@@ -33,8 +33,10 @@ public class File extends BaseEntity {
     private long version;
     private String storageKey;
     private String checksum;
-    private boolean isFolder;
-    private UUID parentId;
+
+    @OneToOne
+    @JoinColumn(name = "file_id")
+    private File file;
 
     @Enumerated(EnumType.STRING)
     private Visibility visibility;
