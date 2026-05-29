@@ -6,5 +6,5 @@ import dev.zbib.drive.modules.upload.dto.StorageOutput;
 public interface IStorageProvider {
     StorageProviderType getType();
 
-    StorageOutput createUpload(String name, long totalChunks);
+    StorageOutput createUpload(String filePath, long totalChunks);
 }
