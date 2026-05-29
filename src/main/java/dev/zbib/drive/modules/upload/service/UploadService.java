@@ -24,7 +24,7 @@ public class UploadService {
     public InitUploadOutput initUpload(InitUploadInput input) {
 
         ChunkingOutput chunkingOutput = chunkingService.getChunkingStrategy(input.getTotalSize());
-        IStorageProvider provider = storageProviderFactory.get(StorageProviderType.MINIO);
+        IStorageProvider provider = storageProviderFactory.get(StorageProviderType.S3);
         StorageOutput storageOutput = provider.createUpload(input.getFileName(), chunkingOutput.getTotalChunks());
         String fileExtension = getFileExtension(input.getFileName());
 

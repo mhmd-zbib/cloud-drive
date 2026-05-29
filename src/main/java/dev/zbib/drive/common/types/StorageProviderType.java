@@ -1,5 +1,5 @@
 package dev.zbib.drive.common.types;
 
 public enum StorageProviderType {
-    MINIO
+    S3
 }
