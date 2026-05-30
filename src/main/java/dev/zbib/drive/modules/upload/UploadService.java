@@ -1,15 +1,13 @@
-package dev.zbib.drive.modules.upload.service;
+package dev.zbib.drive.modules.upload;
 
 import dev.zbib.drive.common.types.StorageProviderType;
 import dev.zbib.drive.common.types.UploadStatus;
-import dev.zbib.drive.modules.upload.IUploadRepository;
 import dev.zbib.drive.modules.upload.dto.ChunkingOutput;
 import dev.zbib.drive.modules.upload.dto.InitUploadInput;
 import dev.zbib.drive.modules.upload.dto.InitUploadOutput;
-import dev.zbib.drive.modules.upload.dto.StorageOutput;
-import dev.zbib.drive.modules.upload.entity.UploadSession;
-import dev.zbib.drive.modules.upload.storage.IStorageProvider;
-import dev.zbib.drive.modules.upload.storage.StorageProviderFactory;
+import dev.zbib.drive.modules.storage.StorageOutput;
+import dev.zbib.drive.modules.storage.IStorageProvider;
+import dev.zbib.drive.modules.storage.StorageProviderFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

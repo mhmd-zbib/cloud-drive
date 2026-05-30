@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.upload.service;
+package dev.zbib.drive.modules.upload;
 
 import dev.zbib.drive.modules.upload.dto.ChunkingOutput;
 import org.springframework.stereotype.Component;

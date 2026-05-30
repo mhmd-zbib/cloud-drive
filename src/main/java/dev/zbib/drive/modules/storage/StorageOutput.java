@@ -1,11 +1,9 @@
-package dev.zbib.drive.modules.upload.dto;
+package dev.zbib.drive.modules.storage;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Builder

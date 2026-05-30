@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.upload.entity;
+package dev.zbib.drive.modules.upload;
 
 import dev.zbib.drive.common.entity.BaseEntity;
 import jakarta.persistence.Entity;

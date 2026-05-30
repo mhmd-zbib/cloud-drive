@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.upload.storage;
+package dev.zbib.drive.modules.storage;
 
 import dev.zbib.drive.common.types.StorageProviderType;
 import org.springframework.stereotype.Component;
