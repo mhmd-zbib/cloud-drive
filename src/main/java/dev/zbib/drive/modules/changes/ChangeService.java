@@ -1,11 +1,12 @@
 package dev.zbib.drive.modules.changes;
 
+import dev.zbib.drive.infrastructure.rabbitmq.RabbitBatchListener;
 import dev.zbib.drive.modules.changes.dto.ChangeInput;
 import dev.zbib.drive.modules.file.File;
 import dev.zbib.drive.modules.file.FileService;
 import dev.zbib.drive.modules.user.User;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -17,9 +18,18 @@ public class ChangeService {
 
     private final IChangeRepository changeRepository;
     private final FileService fileService;
+    private final RabbitTemplate rabbitTemplate;
 
-    @Transactional
-    public void createBatch(User user, List<ChangeInput> inputs) {
+    private void publish(ChangeInput input) {
+        rabbitTemplate.convertAndSend(
+                ChangesRabbitMqConfig.EXCHANGE,
+                ChangesRabbitMqConfig.ROUTING_KEY,
+                input
+        );
+    }
+
+    @RabbitBatchListener(queues = ChangesRabbitMqConfig.QUEUE)
+    public void consume(User user, List<ChangeInput> inputs) {
         filterDuplicates(inputs);
         Map<UUID, File> fileMap = getFileMap(user, inputs);
         List<Change> changes = buildChanges(user, inputs, fileMap);

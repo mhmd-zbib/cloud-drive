@@ -33,7 +33,9 @@ public class RabbitMqConfig {
         return factory;
     }
 
-    @Bean
+    static final String BATCH_FACTORY = "batchRabbitListenerContainerFactory";
+
+    @Bean(BATCH_FACTORY)
     public SimpleRabbitListenerContainerFactory batchRabbitListenerContainerFactory(ConnectionFactory connectionFactory, MessageConverter messageConverter) {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
