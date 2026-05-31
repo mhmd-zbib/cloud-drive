@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.event;
+package dev.zbib.drive.modules.event.dto;
 
 import dev.zbib.drive.common.types.EventType;
 import jakarta.validation.constraints.NotNull;

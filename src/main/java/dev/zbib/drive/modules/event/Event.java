@@ -3,6 +3,7 @@ package dev.zbib.drive.modules.event;
 import dev.zbib.drive.common.entity.BaseEntity;
 import dev.zbib.drive.common.types.EventType;
 import dev.zbib.drive.modules.file.File;
+import dev.zbib.drive.modules.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,7 @@ import java.util.UUID;
         @Index(name = "idx_events_event_id", columnList = "eventId", unique = true),
         @Index(name = "idx_events_file_id", columnList = "file_id"),
         @Index(name = "idx_events_device_id", columnList = "deviceId"),
+        @Index(name = "idx_events_user_id", columnList = "user_id"),
         @Index(name = "idx_events_created_at", columnList = "createdAt")
 })
 @Getter
@@ -37,6 +39,10 @@ public class Event extends BaseEntity {
 
     @Column(nullable = false)
     private Instant clientTimestamp;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "file_id", nullable = false)
