@@ -28,6 +28,8 @@ dependencies {
     }
     implementation("software.amazon.awssdk:s3:2.25.0")
     implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-amqp")
+    testImplementation("org.springframework.amqp:spring-rabbit-test")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")

@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.event.dto;
+package dev.zbib.drive.modules.changes.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.util.UUID;
 
 @Getter
-public class FileDeletedPayload implements EventPayload {
+public class FileDeletedPayload implements ChangePayload {
 
     @NotNull
     private UUID fileId;

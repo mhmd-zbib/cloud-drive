@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.event;
+package dev.zbib.drive.modules.changes;
 
 import dev.zbib.drive.common.entity.BaseEntity;
 import dev.zbib.drive.common.types.EventType;
@@ -11,22 +11,22 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name = "events", indexes = {
-        @Index(name = "idx_events_event_id", columnList = "eventId", unique = true),
-        @Index(name = "idx_events_file_id", columnList = "file_id"),
-        @Index(name = "idx_events_device_id", columnList = "deviceId"),
-        @Index(name = "idx_events_user_id", columnList = "user_id"),
-        @Index(name = "idx_events_created_at", columnList = "createdAt")
+@Table(name = "changes", indexes = {
+        @Index(name = "idx_changes_change_id", columnList = "changeId", unique = true),
+        @Index(name = "idx_changes_file_id", columnList = "file_id"),
+        @Index(name = "idx_changes_device_id", columnList = "deviceId"),
+        @Index(name = "idx_changes_user_id", columnList = "user_id"),
+        @Index(name = "idx_changes_created_at", columnList = "createdAt")
 })
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event extends BaseEntity {
+public class Change extends BaseEntity {
 
     @Column(nullable = false, unique = true)
-    private UUID eventId;
+    private UUID changeId;
 
     @Column(nullable = false)
     private UUID deviceId;

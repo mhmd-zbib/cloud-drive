@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.event.dto;
+package dev.zbib.drive.modules.changes.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -20,5 +20,5 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = FolderMovedPayload.class,   name = "FOLDER_MOVED"),
         @JsonSubTypes.Type(value = FolderDeletedPayload.class, name = "FOLDER_DELETED")
 })
-public interface EventPayload {
+public interface ChangePayload {
 }

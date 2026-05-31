@@ -1,30 +1,33 @@
-package dev.zbib.drive.modules.event.dto;
+package dev.zbib.drive.modules.changes.dto;
 
 import dev.zbib.drive.common.types.EventType;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.UUID;
 
-@Builder
 @Getter
-public class EventInput {
+public class ChangeInput {
 
     @NotNull
-    private UUID eventId;
+    private UUID changeId;
 
     @NotNull
     private UUID deviceId;
 
     @NotNull
+    private UUID fileId;
+
+    @NotNull
     private EventType eventType;
 
     @NotNull
-    private Instant timestamp;
+    private Instant clientTimestamp;
 
-    private EventPayload payload;
+    private String storageKey;
 
+    @Valid
+    private ChangePayload payload;
 }

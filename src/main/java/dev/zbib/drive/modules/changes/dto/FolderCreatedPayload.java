@@ -1,4 +1,4 @@
-package dev.zbib.drive.modules.event.dto;
+package dev.zbib.drive.modules.changes.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,14 +7,13 @@ import lombok.Getter;
 import java.util.UUID;
 
 @Getter
-public class FolderRenamedPayload implements EventPayload {
+public class FolderCreatedPayload implements ChangePayload {
 
     @NotNull
     private UUID folderId;
 
     @NotBlank
-    private String oldName;
+    private String name;
 
-    @NotBlank
-    private String newName;
+    private UUID parentId;
 }
