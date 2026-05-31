@@ -2,17 +2,17 @@ package dev.zbib.drive.modules.file;
 
 import dev.zbib.drive.common.entity.BaseEntity;
 import dev.zbib.drive.common.types.Visibility;
+import dev.zbib.drive.modules.folder.Folder;
 import dev.zbib.drive.modules.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
-import java.util.UUID;
 
 @Entity
 @Table(name = "files", indexes = {
-        @Index(name = "idx_files_parent_id", columnList = "parentId"),
-        @Index(name = "idx_files_owner_id", columnList = "ownerId"),
+        @Index(name = "idx_files_parent_id", columnList = "parent_id"),
+        @Index(name = "idx_files_owner_id", columnList = "owner_id"),
         @Index(name = "idx_files_checksum", columnList = "checksum")
 })
 @Getter
@@ -23,8 +23,12 @@ import java.util.UUID;
 public class File extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Folder parent;
 
     private String name;
     private String extension;
