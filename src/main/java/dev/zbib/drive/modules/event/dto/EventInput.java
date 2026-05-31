@@ -10,13 +10,10 @@ import java.util.UUID;
 
 @Builder
 @Getter
-public class CreateEventInput {
+public class EventInput {
 
     @NotNull
     private UUID eventId;
-
-    @NotNull
-    private UUID fileId;
 
     @NotNull
     private UUID deviceId;
@@ -24,8 +21,6 @@ public class CreateEventInput {
     @NotNull
     private EventType eventType;
 
-    private String storageKey;
-
     @NotNull
-    private Instant clientTimestamp;
+    private Instant timestamp;
 }
