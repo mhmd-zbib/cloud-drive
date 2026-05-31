@@ -22,14 +22,6 @@ import java.time.Instant;
 @Builder
 public class File extends BaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id", nullable = false)
-    private User owner;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parent_id")
-    private Folder parent;
-
     private String name;
     private String extension;
     private String mimeType;
@@ -38,12 +30,16 @@ public class File extends BaseEntity {
     private String storageKey;
     private String checksum;
 
-    @OneToOne
-    @JoinColumn(name = "file_id")
-    private File file;
-
     @Enumerated(EnumType.STRING)
     private Visibility visibility;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private Folder parent;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;
 
     private Instant lastAccessedAt;
 }

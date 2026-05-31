@@ -18,6 +18,9 @@ import lombok.*;
 @AllArgsConstructor
 public class Folder extends BaseEntity {
 
+    @Column(nullable = false)
+    private String name;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
@@ -26,8 +29,6 @@ public class Folder extends BaseEntity {
     @JoinColumn(name = "parent_id")
     private Folder parent;
 
-    @Column(nullable = false)
-    private String name;
 
     @Enumerated(EnumType.STRING)
     private Visibility visibility;

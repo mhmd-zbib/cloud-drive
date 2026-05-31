@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -23,4 +24,7 @@ public class EventInput {
 
     @NotNull
     private Instant timestamp;
+
+    private EventPayload payload;
+
 }
