@@ -10,6 +10,9 @@ spring:
     hibernate:
       ddl-auto: validate  # safer in prod, won't auto-alter tables
 
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+
 minio:
   endpoint: ${MINIO_ENDPOINT}
   access-key: ${MINIO_ACCESS_KEY}

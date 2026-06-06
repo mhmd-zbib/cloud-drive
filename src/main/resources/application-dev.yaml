@@ -8,6 +8,9 @@ spring:
   jpa:
     show-sql: true
 
+  kafka:
+    bootstrap-servers: localhost:9092
+
 minio:
   endpoint: http://localhost:9000
   access-key: zbib
